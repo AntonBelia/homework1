@@ -34,11 +34,11 @@ let productOfArray;
 let flating = resultsArray.flat(Infinity);
 let initValue = 1;
 const multOfValues = flating.reduce(
-		(prev, current) => {
-			return prev * current;
-		},
-		initValue
-	);
+	(prev, current) => {
+		return prev * current;
+	},
+	initValue
+);
 productOfArray = multOfValues;
 console.log(productOfArray); // 24
 
