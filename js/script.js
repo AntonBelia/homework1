@@ -1,5 +1,5 @@
 'use strict';
-
+// first task
 const userNames = ["Петрик Ольга Іванівна", "Гнатюк Петро Антонович", "Рудко Андрій Опанасович"];
 let userName1 = userNames[0];
 let userName2 = userNames[1];
@@ -17,7 +17,7 @@ initials.sort();
 console.log(initials); // [ "Г.П.А.", "П.О.І.", "Р.А.О."]
 
 
-
+// second task
 const currentMaxValue = 4589;
 let reverseMaxValue;
 let strMaxValue = currentMaxValue.toString();
@@ -28,7 +28,7 @@ reverseMaxValue = parseInt(arrayRevers);
 console.log(reverseMaxValue); // 9854
 console.log(typeof reverseMaxValue); // 'number'
 
-
+// third task
 const resultsArray = [1, 2, [3, [4]]];
 let productOfArray;
 let flating = resultsArray.flat(Infinity);
