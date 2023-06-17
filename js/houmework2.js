@@ -1,22 +1,22 @@
 // 1 завдання
 function durationBetweenDates(dateStart, dateEnd, meaTime) {
-	let date1 = new Date(dateStart).getTime() / 1000 || new Date('02 Aug 2023').getTime() / 1000;
-	let date2 = new Date(dateEnd).getTime() / 1000 || new Date('04 Sep 2023').getTime() / 1000;
+	let startDate = new Date(dateStart).getTime() / 1000 || new Date('02 Aug 2023').getTime() / 1000;
+	let endDate = new Date(dateEnd).getTime() / 1000 || new Date('04 Sep 2023').getTime() / 1000;
 	switch (meaTime) {
 		case 'seconds':
-			return Math.abs(date2 - date1) + " seconds";
+			return Math.abs(endDate - startDate) + " seconds";
 			break;
 		case 'minutes':
-			return Math.abs((date2 - date1) / 60) + ' minutes';
+			return Math.abs((endDate - startDate) / 60) + ' minutes';
 			break;
 		case 'hours':
-			return Math.abs((date2 - date1) / 60 / 60) + ' hours';
+			return Math.abs((endDate - datestartDate1) / 60 / 60) + ' hours';
 			break;
 		case 'days':
-			return Math.abs((date2 - date1) / 60 / 60 / 24).toFixed() + ' days';
+			return Math.abs((endDate - startDate) / 60 / 60 / 24).toFixed() + ' days';
 			break;
 		default:
-			return Math.abs((date2 - date1) / 60 / 60 / 24).toFixed() + " days";
+			return Math.abs((endDate - startDate) / 60 / 60 / 24).toFixed() + " days";
 	}
 };
 
