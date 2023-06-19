@@ -1,7 +1,7 @@
 // 1 завдання
-function durationBetweenDates(dateStart = new Date('02 Aug 2023'), dateEnd = new Date('04 Sep 2023'), meaTime) {
+function durationBetweenDates(dateStart = new Date('02 Aug 2023'), dateEnd = new Date('04 Sep 2023'), dimension) {
 	let subtraction = (new Date(dateEnd).getTime() - new Date(dateStart).getTime()) / 1000;
-	switch (meaTime) {
+	switch (dimension) {
 		case 'seconds':
 			return Math.abs(subtraction) + " seconds";
 		case 'minutes':
@@ -11,11 +11,12 @@ function durationBetweenDates(dateStart = new Date('02 Aug 2023'), dateEnd = new
 		case 'days':
 			return Math.abs(subtraction / 60 / 60 / 24).toFixed() + ' days';
 		default:
-			return Math.abs(subtraction / 60 / 60 / 24).toFixed() + " days";
+			return Math.abs(subtraction)*1000 + " milliseconds";
 	}
 };
 
-console.log(durationBetweenDates('02 Aug 1985', '03 Aug 1985', 'days'));
+console.log(durationBetweenDates('02 Aug 1985', '03 Aug 1985', 'seconds'));
+console.log(durationBetweenDates('31 Jan 2022', '03 Feb 2021', 'days'));
 
 
 // 2 завдання 
