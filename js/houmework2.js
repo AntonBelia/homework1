@@ -1,6 +1,6 @@
 // 1 завдання
 function durationBetweenDates(dateStart = new Date('02 Aug 2023'), dateEnd = new Date('04 Sep 2023'), meaTime) {
-	let subtraction = new Date(dateEnd).getTime() / 1000 - new Date(dateStart).getTime() / 1000;
+	let subtraction = (new Date(dateEnd).getTime() - new Date(dateStart).getTime()) / 1000;
 	switch (meaTime) {
 		case 'seconds':
 			return Math.abs(subtraction) + " seconds";
