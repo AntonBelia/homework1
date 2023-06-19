@@ -1,26 +1,22 @@
 // 1 завдання
-function durationBetweenDates(dateStart, dateEnd, meaTime) {
-	let startDate = new Date(dateStart).getTime() / 1000 || new Date('02 Aug 2023').getTime() / 1000;
-	let endDate = new Date(dateEnd).getTime() / 1000 || new Date('04 Sep 2023').getTime() / 1000;
+function durationBetweenDates(dateStart = new Date('02 Aug 2023'), dateEnd = new Date('04 Sep 2023'), meaTime) {
+	let startDate = new Date(dateStart).getTime() / 1000;
+	let endDate = new Date(dateEnd).getTime() / 1000;
 	switch (meaTime) {
 		case 'seconds':
 			return Math.abs(endDate - startDate) + " seconds";
-			break;
 		case 'minutes':
 			return Math.abs((endDate - startDate) / 60) + ' minutes';
-			break;
 		case 'hours':
 			return Math.abs((endDate - datestartDate1) / 60 / 60) + ' hours';
-			break;
 		case 'days':
 			return Math.abs((endDate - startDate) / 60 / 60 / 24).toFixed() + ' days';
-			break;
 		default:
 			return Math.abs((endDate - startDate) / 60 / 60 / 24).toFixed() + " days";
 	}
 };
 
-console.log(durationBetweenDates('02 Aug 1985', '03 Aug 1985', 'minutes'));
+console.log(durationBetweenDates('02 Aug 1985', '03 Aug 1985', 'days'));
 
 
 // 2 завдання тільки в мене чомусь заокруглює не дуже правильно
@@ -33,9 +29,7 @@ const priceData = {
 function optimizer(data) {
 	const optimizerData = {};
 	for (let key in data) {
-		const updatedKey = key.toLowerCase();
-		const updatedValues = Number(data[key]).toFixed(2);
-		optimizerData[updatedKey] = updatedValues;
+		optimizerData[key.toLowerCase()] = parseFloat(data[key]).toFixed(2);
 	}
 	return optimizerData;
 };
