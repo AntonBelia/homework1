@@ -1,25 +1,24 @@
 // 1 завдання
 function durationBetweenDates(dateStart = new Date('02 Aug 2023'), dateEnd = new Date('04 Sep 2023'), meaTime) {
-	let startDate = new Date(dateStart).getTime() / 1000;
-	let endDate = new Date(dateEnd).getTime() / 1000;
+	let subtraction = new Date(dateEnd).getTime() / 1000 - new Date(dateStart).getTime() / 1000;
 	switch (meaTime) {
 		case 'seconds':
-			return Math.abs(endDate - startDate) + " seconds";
+			return Math.abs(subtraction) + " seconds";
 		case 'minutes':
-			return Math.abs((endDate - startDate) / 60) + ' minutes';
+			return Math.abs(subtraction / 60) + ' minutes';
 		case 'hours':
-			return Math.abs((endDate - datestartDate1) / 60 / 60) + ' hours';
+			return Math.abs(subtraction / 60 / 60) + ' hours';
 		case 'days':
-			return Math.abs((endDate - startDate) / 60 / 60 / 24).toFixed() + ' days';
+			return Math.abs(subtraction / 60 / 60 / 24).toFixed() + ' days';
 		default:
-			return Math.abs((endDate - startDate) / 60 / 60 / 24).toFixed() + " days";
+			return Math.abs(subtraction / 60 / 60 / 24).toFixed() + " days";
 	}
 };
 
 console.log(durationBetweenDates('02 Aug 1985', '03 Aug 1985', 'days'));
 
 
-// 2 завдання тільки в мене чомусь заокруглює не дуже правильно
+// 2 завдання 
 const priceData = {
 	Apples: '23.4',
 	BANANAS: '48',
