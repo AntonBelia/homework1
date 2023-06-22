@@ -68,15 +68,34 @@
 
 
 //  Task 4 
+// Version 1 setInterval
 
 // function detonatorTimer(delay) {
-// 	let result = delay;
-// 	for (let i =delay; i >= 1; i--)
-// 		result -= 1, console.log(i);
-// 	return console.log(result);
+// 	let stopInterval = setInterval(() => {		
+// 		if (delay === 0){
+// 			clearInterval(stopInterval)
+// 			console.log('BOOM !');
+// 		} else {
+// 			console.log(delay);
+// 			return delay--;
+// 		}
+// 	}, 1000)
 // };
-// setTimeout(detonatorTimer, 2000, 3)
-console.log("Boom");
+
+// detonatorTimer(3);
+
+
+// // Version 2 setTimeout
+
+// function detonatorTimer(delay) {
+// if (delay > 0) {
+// 	console.log(delay);
+// 	delay --;
+// 	setTimeout(detonatorTimer, 1000, delay);
+// } else if (delay === 0) {
+// 	console.log ('BOOM!')
+// }
+// };
 
 // detonatorTimer(3);
 // 3
