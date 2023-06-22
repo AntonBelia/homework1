@@ -102,3 +102,26 @@
 // 2
 // 1
 // BOOM!
+
+
+//  Task 5
+
+let me = {
+	name: 'Anton',
+	surname: 'Belia',
+	residency: 'Uzhorod',
+	country: 'Ukraina',
+	enemy: 'moskovia',
+	gender: 'male',
+	age: 33,
+	hobby: 'brain teaser',
+	introduce() {
+	console.log(`My name is ${this.name} ${this.surname} and I live in ${this.residency}`);
+	},
+	prognose() {
+	console.log(`I hope that this year will end the war with ${this.enemy}`);
+	},
+	}
+	
+	me.introduce();
+	me.prognose();
