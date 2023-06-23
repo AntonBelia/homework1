@@ -56,10 +56,24 @@ const movies = [
 ];
 
 function byProperty(property, direction) {
-
+	return function(a, b) {
+		if (direction === '>') {
+		  if (a[property] > b[property]) {
+			return 1;
+		  } else if (a[property] < b[property]) {
+			return -1;
+		  }
+		  return 0;
+		} else if (direction === '<') {
+		  if (a[property] < b[property]) {
+			return 1;
+		  } else if (a[property] > b[property]) {
+			return -1;
+		  }
+		  return 0;
+		}
+	  };
 };
-
-
 
 console.log(movies.sort(byProperty('releaseYear', '>'))); // виведе масив фільмів посортованих по року випуску, від старішого до новішого
 console.log(movies.sort(byProperty('runningTimeInMinutes', '<'))); // виведе масив фільмів посортованих по їх тривалості, від найдовшого до найкоротшого
@@ -173,7 +187,7 @@ console.log(movies.sort(byProperty('movieName', '>'))); // виведе маси
 // slowedSomeFunction(2, 2); // викликаєте декоратор*
 
 // let fortuneTeller = slower(numberOfChildren, 2)
-// fortuneTeller('Anton', 'Jana');
+// fortuneTeller('Anton', 'Tatevik');
 
 // виведе в консоль "Chill out, you will get you result in 5 seconds"
 //...через 5 секунд виведе результат роботи 'someFunction*'
