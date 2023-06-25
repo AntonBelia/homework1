@@ -1,11 +1,19 @@
 //  Task 1
 
-// function addThemAll (a, b, ...args) {
-// 	let sum = a + b;
+// Variant 1
+
+// function addThemAll (...args) {
+// 	let sum = 0;
 //  	for (let arg of args) {
 //   		sum += arg;
 //   	}
 //   return sum;
+// }
+
+// Variant 2 reduce
+
+// function addThemAll (...args) {
+//   return args.reduce((sum, current) => sum +current, 0);
 // }
 
 // console.log(addThemAll(2,4));     // 6
@@ -58,20 +66,11 @@ const movies = [
 function byProperty(property, direction) {
 	return function(a, b) {
 		if (direction === '>') {
-		  if (a[property] > b[property]) {
-			return 1;
-		  } else if (a[property] < b[property]) {
-			return -1;
-		  }
-		  return 0;
+		  return a[property] > b[property] ? 1 : a[property] < b[property] ? -1 : 0;
 		} else if (direction === '<') {
-		  if (a[property] < b[property]) {
-			return 1;
-		  } else if (a[property] > b[property]) {
-			return -1;
-		  }
-		  return 0;
+			return a[property] < b[property] ? 1 : a[property] > b[property] ? -1 : 0;
 		}
+		return 0;
 	  };
 };
 
@@ -85,9 +84,9 @@ console.log(movies.sort(byProperty('movieName', '>'))); // виведе маси
 // Version 1 setInterval
 
 // function detonatorTimer(delay) {
-// 	let stopInterval = setInterval(() => {		
+// 	let idTimer = setInterval(() => {		
 // 		if (delay === 0){
-// 			clearInterval(stopInterval)
+// 			clearInterval(idTimer)
 // 			console.log('BOOM !');
 // 		} else {
 // 			console.log(delay);
