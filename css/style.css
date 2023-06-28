@@ -1,2 +1,16 @@
+section:first-line {
+	color: green;
+}
 
-  
+.blockTwo__Header {
+	color: green;
+}
+
+ul li:nth-child(5) {
+	color: green;
+}
+
+#footerLevelCurrent {
+	color: green;
+}
+
