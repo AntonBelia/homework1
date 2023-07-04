@@ -32,7 +32,7 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit;}
 /*--------------------*/
 
 body {
-	background-color: rgb(225, 225, 225);
+	/* background-color: rgb(225, 225, 225); */
 }
 
 .conteiner {
@@ -55,9 +55,13 @@ body {
     color: rgb(234, 225, 225);
     text-shadow: 1px 1px 1px #000;
     border-radius: 15px;
-    background-color: rgb(93, 87, 87);
+    background-color: rgb(90, 90, 90);
 }
 
-.button2 {
-	background-color: rgb(71, 65, 65);
+.dark {
+	background-color: #403535;
+}
+
+.light {
+	background-color: #bdb1b1;
 }
