@@ -8,8 +8,8 @@
 //Task 2
 let outputLastDate = document.getElementById("outputLastDate");
 let toggleButton = document.getElementById("button");
-let bgColorTheme = localStorage.getItem("bgColorTheme");
-let lastToggleTime = localStorage.getItem("lastToggleTime");
+let bgColorTheme = localStorage.getItem("bgColorTheme") || "light";
+let lastToggleTime = localStorage.getItem("lastToggleTime") || "";
 
 function getFormattedDate() {
   let newDate = new Date();
@@ -22,45 +22,32 @@ function getFormattedDate() {
   return `${day}-${month}-${year} ${hours}:${minutes}:${seconds}`;
 }
 
-console.log(getFormattedDate());
-
-if (!bgColorTheme || !lastToggleTime) {
-  lastToggleTime = "";
-  bgColorTheme = "light";
-  localStorage.setItem("lastToggleTime", lastToggleTime);
-  localStorage.setItem("bgColorTheme", bgColorTheme);
-}
-
 document.body.classList.add(bgColorTheme);
 
-toggleButton.textContent = bgColorTheme === "light" ? "Turn off" : "Turn on";
 
 if (bgColorTheme === "light") {
-    outputLastDate.textContent = "Last turn off: " + lastToggleTime;
+  toggleButton.textContent = "Turn off";
+  outputLastDate.textContent = "Last turn off: " + lastToggleTime;
+} else if (bgColorTheme === "dark") {
+  toggleButton.textContent = "Turn on";
+  outputLastDate.textContent = "Last turn on: " + lastToggleTime;
+}
+
+toggleButton.addEventListener("click", function () {
+  document.body.classList.toggle("light");
+  document.body.classList.toggle("dark");
+
+  if (document.body.classList.contains("light")) {
+    toggleButton.textContent = "Turn off";
+    outputLastDate.textContent = "Last turn on: " + getFormattedDate();
+    bgColorTheme = "light";
   } else {
-    outputLastDate.textContent = "Last turn on: " + lastToggleTime;
+    toggleButton.textContent = "Turn on";
+    outputLastDate.textContent = "Last turn off: " + getFormattedDate();
+    bgColorTheme = "dark";
   }
 
-  toggleButton.addEventListener("click", function () {
-    if (document.body.classList.contains("light")) {
-      document.body.classList.remove("light");
-      document.body.classList.add("dark");
-      toggleButton.textContent = "Turn on";
-      outputLastDate.textContent = "Last turn off: " + getFormattedDate();
-
-      lastToggleTime = getFormattedDate();
-      bgColorTheme = "dark";
-      localStorage.setItem("lastToggleTime", lastToggleTime);
-      localStorage.setItem("bgColorTheme", bgColorTheme);
-    } else {
-      document.body.classList.remove("dark");
-      document.body.classList.add("light");
-      toggleButton.textContent = "Turn off";
-      outputLastDate.textContent = "Last turn on: " + getFormattedDate();
-  
-      lastToggleTime = getFormattedDate();
-      bgColorTheme = "light";
-      localStorage.setItem("lastToggleTime", lastToggleTime);
-      localStorage.setItem("bgColorTheme", bgColorTheme);
-    }
-  });
+  lastToggleTime = getFormattedDate();
+  localStorage.setItem("lastToggleTime", lastToggleTime);
+  localStorage.setItem("bgColorTheme", bgColorTheme);
+});
