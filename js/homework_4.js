@@ -34,17 +34,16 @@ if (bgColorTheme === "light") {
 }
 
 toggleButton.addEventListener("click", function () {
-  document.body.classList.toggle("light");
   document.body.classList.toggle("dark");
 
-  if (document.body.classList.contains("light")) {
-    toggleButton.textContent = "Turn off";
-    outputLastDate.textContent = "Last turn on: " + getFormattedDate();
-    bgColorTheme = "light";
-  } else {
+  if (document.body.classList.contains("dark")) {
     toggleButton.textContent = "Turn on";
     outputLastDate.textContent = "Last turn off: " + getFormattedDate();
     bgColorTheme = "dark";
+  } else {
+    toggleButton.textContent = "Turn off";
+    outputLastDate.textContent = "Last turn on: " + getFormattedDate();
+    bgColorTheme = "light";
   }
 
   lastToggleTime = getFormattedDate();
