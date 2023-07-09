@@ -24,8 +24,11 @@ function getFormattedDate() {
 
 document.body.classList.add(bgColorTheme);
 
-toggleButton.textContent = "Turn on";
-outputLastDate.textContent = "Last turn on: " + lastToggleTime;
+toggleButton.textContent = "Turn off";
+if (!lastToggleTime) {
+  outputLastDate.textContent = ''
+} else {outputLastDate.textContent = "Last turn on: " + lastToggleTime;}
+
 
 toggleButton.addEventListener("click", function () {
   document.body.classList.toggle("dark");
