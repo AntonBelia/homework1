@@ -31,7 +31,11 @@ if (document.body.classList.contains("dark")) {
 
 if (!lastToggleTime) {
   outputLastDate.textContent = ''
-} else if (document.body.classList.contains("dark")){outputLastDate.textContent = "Last turn off: " + lastToggleTime;}
+} else if (document.body.classList.contains("dark")) {
+  outputLastDate.textContent = "Last turn off: " + lastToggleTime;
+} else {
+  outputLastDate.textContent = "Last turn on: " + getFormattedDate();
+}
 
 
 toggleButton.addEventListener("click", function () {
